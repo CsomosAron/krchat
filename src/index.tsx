@@ -13,7 +13,10 @@ if (theme) {
     document.documentElement.classList.remove("theme-light");
 }
 
+Notification.requestPermission();
+
 function App() {
+    
     let [ renderCount, setRenderCount ] = useState( 1 );
     console.log( "App render count: " + renderCount );
     useEffect(() => {
