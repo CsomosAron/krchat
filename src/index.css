@@ -1,0 +1,122 @@
+:root {
+    --html-background: #333336;
+    /* ide jön minden más szín, méret, betűtípus, … */
+    --font-family: 'Segoe UI', sans-serif;
+    --font-size: 16px;
+    --line-height: 1.5;
+
+    --text-color: #ffffff;
+
+    --input-background: #000000;
+
+    --button-background: #2ae;
+    --button-hover-background: #3cf;
+    --button-active-background: #17b;
+    --button-padding: 8px 16px;
+    --button-font-weight: 600;
+    --button-border-radius: 7px;
+    --button-box-shadow: 1px 2px 10px rgba(0, 0, 0, 1);
+    --button-hover-box-shadow: 2px 5px 20px rgba(0, 0, 0, 1);
+
+    --input-padding: 12px;
+}
+
+html {
+    background: var(--html-background);
+    /* többi beállítás ide jön, de bizonyos beállítások maradhatnak konstansok, pl. line-height */
+    font-family: var(--font-family);
+    /*Font*/
+    font-size: var(--font-size);
+    /*Font mérete*/
+    line-height: var(--line-height);
+    /*Sormagasság*/
+    color: var(--text-color);
+    /*Szöveg színe*/
+}
+
+html,
+body,
+div {
+    margin: 0;
+    /* CSS reset */
+    padding: 0;
+    /* CSS reset */
+    display: grid;
+    /* grid-re állunk át mindenhol */
+    grid: minmax(0, 1fr) / minmax(0, 1fr);
+    /* Az egyetlen gyerek szülő méretű */
+}
+
+body {
+    min-height: 100vh;
+    /* ablak méretű */
+    max-height: 100vh;
+    /* ablak méretű */
+}
+
+input,
+button,
+a {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    border: 0;
+    /* ne legyen kerete a buttonnak és az inputnak */
+    color: inherit;
+}
+
+input {
+    background: var(--input-background);
+    /* Sötét téma */
+}
+
+button {
+    padding: var(--button-padding);
+    /* Tágas */
+    background: var(--button-background);
+    /* Sötét téma */
+    font-weight: var(--button-font-weight);
+    /* Bold */
+    border-radius: var(--button-border-radius);
+    /* Lekerekített */
+    box-shadow: var(--button-box-shadow);
+    /* Árnyék */
+    transition: all 145ms ease-out;
+
+    /* Átmenet az árnyékra és színre, ami változik */
+    &:hover {
+        background: var(--button-hover-background);
+        /* Megváltoztatja a színét, ha fölé visszük az egeret */
+        box-shadow: var(--button-hover-box-shadow);
+        /* Nagyobb árnyék, ha kiemelkedik */
+    }
+
+    &:active {
+        box-shadow: none;
+        /* Lenyomva nincs árnyék */
+        background: var(--button-active-background);
+        /* Megváltoztatja a színét, ha aktiváljuk (lenyomjuk) */
+    }
+}
+
+/* Light theme overrides */
+.theme-light {
+    --html-background: #ffffff;
+    --text-color: #111112;
+    --input-background: #f6f6f6;
+    --button-background: #0066cc; 
+    --button-hover-background: #0088ff;
+    --button-active-background: #0055aa;
+    --logo-color: #0066cc;
+}
+
+/* Example red theme */
+.theme-red {
+    --html-background: #2b0b0b;
+    --text-color: #ffecec;
+    --input-background: #3a1a1a;
+    --button-background: #ff4b4b;
+    --button-hover-background: #ff6b6b;
+    --button-active-background: #e53939;
+    --logo-color: #ff4b4b;
+}
